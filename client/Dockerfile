@@ -3,4 +3,9 @@ FROM node:15-alpine
 
 WORKDIR /app
 
-CMD npm install && npm run build
+COPY package.json .
+COPY package-lock.json .
+
+RUN npm install
+
+CMD npm run build
