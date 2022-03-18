@@ -1,0 +1,18 @@
+{
+	"name": "Personal Site",
+	"dockerComposeFile": [
+		"docker-compose.yml"
+	],
+	"workspaceFolder": "/app",
+	"service": "editor",
+	"settings": {},
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"dsznajder.es7-react-js-snippets",
+		"ms-azuretools.vscode-docker"
+	],
+	"remoteUser": "node",
+	"features": {
+		"docker-from-docker": "latest"
+	}
+}

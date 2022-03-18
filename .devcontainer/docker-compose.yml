@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  editor:
+    image: mcr.microsoft.com/vscode/devcontainers/typescript-node:0-16-bullseye
+    volumes:
+      - ../:/app
+    working_dir: /app
+    command: tail -f /dev/null
+
+  reverse_proxy:
+    image: nginx
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 3000:3000
+
+  wrapper:
+    image: node:15-alpine
+    volumes:
+      - ../:/app
+    working_dir: /app
+    entrypoint: sh
+    command: |
+      -c "cd client
+      npm install
+      npm start"
