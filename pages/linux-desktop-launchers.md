@@ -16,7 +16,7 @@ Name=Looking Glass
 
 
 # Create  Linux Service
-/etc/systemd/system/scream.service
+/etc/systemd/user/scream.service (userland service, so use `systemctl --user`)
 ```
 [Unit]
 Description=Scream Receiver
@@ -24,13 +24,9 @@ After=pulseaudio.service network-online.target
 Wants=pulseaudio.service
 
 [Service]
-User=alex
 Type=simple
 ExecStartPre=/bin/sleep 3
 ExecStart=/home/alex/Documents/vms/scream/Receivers/unix/build/scream -i virbr0
-#ExecStart=/home/pi/scream/Receivers/unix/build/scream -u -p 4011 -v
-Restart=always
-RestartSec=1
 
 [Install]
 WantedBy=default.target
