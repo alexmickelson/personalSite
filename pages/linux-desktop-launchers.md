@@ -6,17 +6,32 @@ looking-glass.desktop
 ```
 [Desktop Entry]
 Type=Application
-Terminal=false
-Exec=/home/alex/Documents/vms/looking-glass-B5.0.1/client/build/looking-glass-client
+Terminal=true
+TerminalOptions=\s--noclose
+Exec=bash -c "[[ \"$(virsh -c qemu:///system list --inactive --name | grep -q windows)\" != 'windows' ]] && virsh -c qemu:///system start windows; /home/alex/Documents/vms/looking-glass-B5.0.1/client/build/looking-glass-client"
 Name=Looking Glass
 #Icon=/path/to/icon
+
 ```
 
-scream.desktop
+
+# Create  Linux Service
+/etc/systemd/system/scream.service
 ```
-[Desktop Entry]
-Type=Application
-Terminal=true
-Exec=/home/alex/Documents/vms/scream/Receivers/unix/build/scream -i virbr0
-Name=Scream
+[Unit]
+Description=Scream Receiver
+After=pulseaudio.service network-online.target
+Wants=pulseaudio.service
+
+[Service]
+User=alex
+Type=simple
+ExecStartPre=/bin/sleep 3
+ExecStart=/home/alex/Documents/vms/scream/Receivers/unix/build/scream -i virbr0
+#ExecStart=/home/pi/scream/Receivers/unix/build/scream -u -p 4011 -v
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=default.target
 ```
