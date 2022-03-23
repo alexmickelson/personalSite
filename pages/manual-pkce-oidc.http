@@ -1,0 +1,49 @@
+###
+# create challenge: echo -n "randomsecretstringrandomsecretstringrandomsecretstringrandomsecretstring" | sha256sum -b | xxd -p -r | base64 | tr '/+' '_-' | tr -d '='
+# code_challenge: wjyPi7DnThs7N3PS9S9t2bLrtdrhXxU39zx1sBoGx90
+# i think code_verifier has lenght requirements
+# @name first
+
+
+get https://engineering.snow.edu/aspen/auth/realms/aspen/protocol/openid-connect/auth
+    ?client_id=aspen-web
+    &redirect_uri=http://doestntExist/callback
+    &response_type=code
+    &response_mode=fragment
+    &state=random-response-string
+    &code_challenge=gR16hjqNRs3ofOuVtlHGwabDPymJQYT8sJ1UxnW09qk
+    &code_challenge_method=S256
+    &scope=profile
+
+### get url from action of previous form
+### & is going to be html escaped
+# @name manualLogin
+post https://engineering.snow.edu/aspen/auth/realms/aspen/login-actions/authenticate?session_code=0jWgkUzDLAvZV_sRpXlZCCO-ZxOdJW0NjPsvY4rn8_Y
+&execution=08d1aba6-cdb8-457e-8bd4-f6ff02a9c7f8
+&client_id=aspen-web
+&tab_id=vNJCnQnXmnI
+Content-Type: application/x-www-form-urlencoded
+Cookie: {{first.response.headers.Set-Cookie}}
+
+username=aspenadmin
+&password=password
+
+###
+# @name getToken
+post https://engineering.snow.edu/aspen/auth/realms/aspen/protocol/openid-connect/token
+Cookie: {{first.response.headers.Set-Cookie}}
+Content-Type: application/x-www-form-urlencoded
+
+client_id=aspen-web
+&code=e80eb0d2-fa7b-4e56-a1e7-d57e159e4fea.2a38c436-3dac-41c4-95c4-f61d5ea33f18.c3053e3e-9d90-4a2f-b7ab-232f108b2e6f
+&redirect_uri=http://doestntExist/callback
+&code_verifier=randomsecretstringrandomsecretstringrandomsecretstringrandomsecretstring
+&grant_type=authorization_code
+
+
+### 
+
+# @name useToken
+
+get https://engineering.snow.edu/aspen/api/Admin
+Authorization: Bearer {{getToken.response.body.access_token}}
