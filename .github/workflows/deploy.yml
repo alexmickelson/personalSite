@@ -11,7 +11,7 @@ jobs:
 
       - name: compile in docker
         run: |
-          cd wrapper
+          cd container
           docker build -t build-site .
           docker run \
             --rm \
