@@ -1,5 +1,5 @@
 {
-  "name": "@alexmickelson/blog",
+  "name": "@alexmickelson/navbar",
   "scripts": {
     "start": "webpack serve --port 80",
     "start:standalone": "webpack serve --env standalone",
@@ -60,5 +60,5 @@
     "single-spa": "^5.9.3",
     "single-spa-react": "^4.3.1"
   },
-  "types": "dist/alexmickelson-blog.d.ts"
+  "types": "dist/alexmickelson-navbar.d.ts"
 }

@@ -14,7 +14,7 @@ services:
     ports:
       - 80:80
 
-  wrapper:
+  container:
     image: node:15-alpine
     volumes:
       - ../:/app
@@ -22,12 +22,12 @@ services:
     entrypoint: sh
     command: |
       -c "
-        cd wrapper
+        cd container
         npm install
         npm start
       "
 
-  blogs:
+  blog:
     image: node:15-alpine
     volumes:
       - ../:/app
@@ -36,6 +36,19 @@ services:
     command: |
       -c "
         cd blog
+        npm install
+        npm start
+      "
+
+  navbar:
+    image: node:15-alpine
+    volumes:
+      - ../:/app
+    working_dir: /app
+    entrypoint: sh
+    command: |
+      -c "
+        cd navbar
         npm install
         npm start
       "

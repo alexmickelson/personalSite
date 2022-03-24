@@ -1,0 +1,12 @@
+{
+  "extends": "ts-config-single-spa",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "declarationDir": "dist",
+    //not sure why this fixes things
+    "declaration": true
+  },
+  "files": ["src/alexmickelson-blog.tsx"],
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test*"]
+}
