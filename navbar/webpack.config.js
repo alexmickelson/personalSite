@@ -11,9 +11,8 @@ module.exports = (webpackConfigEnv, argv) => {
   });
 
   return merge(defaultConfig, {
-    output: {
-      path: path.resolve("./dist/serve/navbar"),
-      publicPath: "/serve/navbar/",
+    devServer: {
+      hot: false,
     },
   });
 };

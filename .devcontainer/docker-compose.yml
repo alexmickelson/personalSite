@@ -3,21 +3,22 @@ services:
   editor:
     image: mcr.microsoft.com/vscode/devcontainers/typescript-node:0-16-bullseye
     volumes:
-      - ../:/app
+    - ../:/app
+    - ./.bashrc:/home/node/.bashrc
     working_dir: /app
     command: tail -f /dev/null
 
   reverse_proxy:
     image: nginx
     volumes:
-      - ./default.conf:/etc/nginx/conf.d/default.conf
+    - ./default.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - 80:80
+    - 80:80
 
   container:
     image: node:15-alpine
     volumes:
-      - ../:/app
+    - ../:/app
     working_dir: /app
     entrypoint: sh
     command: |
@@ -28,9 +29,10 @@ services:
       "
 
   blog:
+    # build: ../blog
     image: node:15-alpine
     volumes:
-      - ../:/app
+    - ../:/app
     working_dir: /app
     entrypoint: sh
     command: |
@@ -43,7 +45,7 @@ services:
   navbar:
     image: node:15-alpine
     volumes:
-      - ../:/app
+    - ../:/app
     working_dir: /app
     entrypoint: sh
     command: |
@@ -52,3 +54,7 @@ services:
         npm install
         npm start
       "
+  pages:
+    image: nginx:alpine
+    volumes:
+    - ../pages:/usr/share/nginx/html
