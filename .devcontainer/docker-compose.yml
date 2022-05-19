@@ -29,7 +29,6 @@ services:
       "
 
   blog:
-    # build: ../blog
     image: node:15-alpine
     volumes:
     - ../:/app

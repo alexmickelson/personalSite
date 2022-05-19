@@ -20,8 +20,8 @@ Name=Looking Glass
 ```
 [Unit]
 Description=Scream Receiver
-After=pulseaudio.service network-online.target
-Wants=pulseaudio.service
+After=pulseaudio.service/pipewire-pulse.service network-online.target
+Wants=pulseaudio.service/pipewire-pulse.service
 
 [Service]
 Type=simple
