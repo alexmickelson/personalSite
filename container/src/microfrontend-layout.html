@@ -16,12 +16,15 @@
   </route>
 
   -->
+  <div>
 
-  <main>
-    <route default>
+    <main>
       <application name="@alexmickelson/navbar"></application>
-      <application name="@alexmickelson/blog"></application>
-      <!-- <application name="@single-spa/welcome"></application> -->
-    </route>
-  </main>
+      
+      <route default>
+        <application name="@alexmickelson/blog"></application>
+        <!-- <application name="@single-spa/welcome"></application> -->
+      </route>
+    </main>
+  </div>
 </single-spa-router>
