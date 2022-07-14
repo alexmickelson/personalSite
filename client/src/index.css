@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 
-
 .light {
   --color-primary: #1e293b;
   --color-secondary: #e2e8f0;
@@ -17,4 +16,3 @@
 }
 
 @tailwind utilities;
-
