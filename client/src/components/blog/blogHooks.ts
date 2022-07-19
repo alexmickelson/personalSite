@@ -10,9 +10,7 @@ export const useGetBlogPagesQuery = () =>
   useQuery(blogHookKeys.blogPages(), async () => {
     const url = "/pages/";
 
-    const response = await axios.get<NginxFile[]>(url, {
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await axios.get<NginxFile[]>(url);
     const files = response.data.map((f) => ({
       ...f,
       mtime: new Date(f.mtime),
@@ -27,4 +25,8 @@ export const useGetBlogPagesQuery = () =>
   });
 
 export const useGetBlogQuery = (filename: string) =>
-  useQuery(blogHookKeys.blog(filename), async () => {});
+  useQuery(blogHookKeys.blog(filename), async () => {
+    const url = `/pages/${filename}`
+    const response = await axios.get<string>(url);
+    return response.data;
+  });
