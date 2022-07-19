@@ -1,24 +1,18 @@
-# name: Deploy Site
-# on:
-#   - push
-#   - workflow_dispatch
-# jobs:
-#   update-infrastructure:
-#     runs-on: [self-hosted]
-#     steps:
-#       - name: checkout repo
-#         uses: actions/checkout@v2
+name: Deploy Site
+on:
+  - push
+  - workflow_dispatch
+jobs:
+  update-infrastructure:
+    runs-on: [self-hosted]
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
 
-#       - name: compile in docker
-#         run: |
-#           cd container
-#           docker build -t build-site .
-#           docker run \
-#             --rm \
-#             -v $(pwd)/src:/app/src \
-#             -v $(pwd)/public:/app/public \
-#             -v $(pwd)/tsconfig.json:/app/tsconfig.json \
-#             -v $(pwd)/tailwind.config.js:/app/tailwind.config.js \
-#             -v $(pwd)/postcss.config.js:/app/postcss.config.js \
-#             -v /var/www/html:/app/build \
-#             build-site
+      - name: compile in docker
+        run: |
+          docker build -t personal-site client/
+          docker run \
+            --rm \
+            -v $(pwd)/pages/:/usr/share/nginx/html/pages/:ro \
+            personal-site

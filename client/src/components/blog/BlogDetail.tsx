@@ -31,7 +31,7 @@ export const BlogDetail: FC<{ blogname: string }> = ({ blogname }) => {
       components={{
         code({ node, inline, children, className, ...props }) {
           const language = className?.replace("language-", "");
-          console.log({ node, inline, children, className, language, props });
+          // console.log({ node, inline, children, className, language, props });
           return (
             <PrismHighlighter
               language={language}
