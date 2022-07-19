@@ -11,10 +11,10 @@ export const NavbarBlog = () => {
   if (!getBlogQuery.data) return <>No files from request...</>;
 
   return (
-    <ul className=" space-y-2 ">
+    <div className=" space-y-2 ">
       {getBlogQuery.data.map((b) => (
-        <NavBlogItem blog={b} />
+        <NavBlogItem blog={b} key={b.name} />
       ))}
-    </ul>
+    </div>
   );
 };

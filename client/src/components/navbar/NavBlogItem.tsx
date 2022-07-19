@@ -16,39 +16,32 @@ export const NavBlogItem: FC<{ blog: NginxFile }> = ({ blog }) => {
     .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
     .join(" ");
 
+  const classes = `
+      w-full
+      flex 
+      items-center
+      p-2
+      text-base 
+      font-normal 
+      text-gray-900 
+      rounded-lg 
+      transition-all
+      duration-75 
+      hover:bg-gray-100 
+      dark:hover:bg-dark
+      dark:text-gray-300
+      group
+    `;
   return (
-    <li key={blog.name} className="w-full">
-      <button
-        className="
-        w-full
-        flex 
-        items-center
-        p-2
-        text-base 
-        font-normal 
-        text-gray-900 
-        rounded-lg 
-        transition 
-        duration-75 
-        hover:bg-gray-100 
-        dark:hover:bg-gray-700 
-        dark:text-gray-300
-        group
-      "
-      >
-        <span className="ml-4">
-          <NavLink
-            to={`/blog/${blog.name}`}
-            className={({ isActive }) =>
-              isActive
-                ? "border-b-2 text-secondary border-secondary"
-                : undefined
-            }
-          >
-            {formalName}
-          </NavLink>
-        </span>
-      </button>
-    </li>
+    <NavLink
+      to={`/blog/${blog.name}`}
+      className={({ isActive }) =>
+        isActive
+          ? "border-2 text-secondary border-secondary" + classes
+          : classes
+      }
+    >
+      {formalName}
+    </NavLink>
   );
 };

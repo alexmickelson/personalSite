@@ -186,7 +186,4 @@ export const theme: { [key: string]: React.CSSProperties } = {
   "inserted": {
     "color": "green"
   },
-  "linenumber": {
-    "display": "none"
-  }
 };
