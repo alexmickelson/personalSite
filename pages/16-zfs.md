@@ -41,7 +41,13 @@ zpool iostat my-pool 1
 
 ## Glorious Sanoid / Syncoid Snapshot Management
 
-Sanoid is a fantastic project that makes snapshot management extremely simple. You can check out the git repo [here](https://github.com/jimsalterjrs/sanoid). On ubuntu you can install them with `sudo apt install sanoid`. Check out the git repo for more details about the sanoid config
+Sanoid is a fantastic project that makes snapshot management extremely simple. You can check out the git repo [here](https://github.com/jimsalterjrs/sanoid). On ubuntu you can install them with:
+```
+sudo apt install sanoid
+sudo systemctl enable --now sanoid-prune.service
+sudo systemctl enable --now sanoid.timer
+```
+Check out the git repo for more details about the sanoid config
 
 /etc/sanoid/sanoid.conf
 ```
