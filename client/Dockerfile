@@ -6,8 +6,8 @@ RUN npm install
 COPY . /app
 RUN npm run build
 
-FROM nginx:alpine
-COPY default.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM ghcr.io/linuxserver/swag
+COPY default.conf /config/nginx/site-confs/default
+COPY --from=build /app/build /var/www/html
+
+# CMD ["nginx", "-g", "daemon off;"]

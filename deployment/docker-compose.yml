@@ -1,0 +1,22 @@
+version:  "3.8"
+services:  
+  personal-site:
+    image: personal-site
+    container_name: personal-site
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Denver
+      - URL=alexmickelson.guru
+      - SUBDOMAINS=wildcard
+      - VALIDATION=dns
+      - DNSPLUGIN=cloudflare
+    volumes:
+      - /data/swag:/config
+      - ../pages:/var/www/html/pages:ro
+    ports:
+      - 443:443
+      #- 80:80 #optional
+    restart: unless-stopped

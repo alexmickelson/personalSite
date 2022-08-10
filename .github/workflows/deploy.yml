@@ -11,8 +11,12 @@ jobs:
 
       - name: compile in docker
         run: |
+          docker pull ghcr.io/linuxserver/swag
+          docker pull node:15-alpine
           docker build -t personal-site client/
-          docker run \
-            --rm \
-            -v $(pwd)/pages/:/usr/share/nginx/html/pages/:ro \
-            personal-site
+          # docker run \
+          #   --rm \
+          #   -v $(pwd)/pages/:/usr/share/nginx/html/pages/:ro \
+          #   personal-site
+          cd deployment
+          docker-compose up -d
