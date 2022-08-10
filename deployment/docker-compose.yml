@@ -16,7 +16,8 @@ services:
     volumes:
       - ./default.conf:/config/nginx/site-confs/default
       - /data/swag:/config
-      - ../pages:/var/www/html/pages:ro
+      - ../pages:/usr/share/nginx/html/pages:ro
+      
     ports:
       - 443:443
       #- 80:80 #optional
