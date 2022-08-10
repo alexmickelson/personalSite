@@ -19,4 +19,5 @@ jobs:
           #   -v $(pwd)/pages/:/usr/share/nginx/html/pages/:ro \
           #   personal-site
           cd deployment
+          docker-compose down
           docker-compose up -d
