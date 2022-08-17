@@ -1,5 +1,6 @@
 # personalSite
 
+check out: https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/
 
 TODO:
 
