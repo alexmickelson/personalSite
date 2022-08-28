@@ -1,5 +1,7 @@
 # personalSite
 
+check out: https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/
+https://www.jumboframeinternet.com/post/9/
 
 TODO:
 
