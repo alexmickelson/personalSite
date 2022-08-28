@@ -3,7 +3,7 @@
 ## Install these packages
 
 ```bash
-sudo apt install qemu-kvm libvirt-daemon-system virtinst bridge-utils openvswitch-switch zfsutils-linux libguestfs-tools nfs-common ovmf openjdk-11-jdk openjdk-11-jdk-headless
+sudo apt install qemu-kvm libvirt-daemon-system virtinst bridge-utils openvswitch-switch zfsutils-linux libguestfs-tools (optional: nfs-common ovmf)
 ```
 
 add users to virsh group
