@@ -28,6 +28,7 @@ code {
   @apply font-mono;
   background-color: #221537;
   @apply rounded-md;
+  white-space : pre-wrap !important;
 }
 
 code.inline {

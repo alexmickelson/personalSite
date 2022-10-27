@@ -59,8 +59,8 @@ const PrismMarkdownComponents = {
           style={theme}
           language={language}
               PreTag="div"
-          showLineNumbers={false}
-          wrapLines={hasMeta ? true : false}
+          showLineNumbers={true}
+          wrapLines={true }
           useInlineStyles={true}
           // lineProps={applyHighlights}
           {...props}

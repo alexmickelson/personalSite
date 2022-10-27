@@ -20,7 +20,7 @@ export const theme: { [key: string]: React.CSSProperties } = {
     "WebkitHyphens": "none",
     "MozHyphens": "none",
     "msHyphens": "none",
-    "hyphens": "none"
+    "hyphens": "none",
   },
   "pre[class*=\"language-\"]": {
     "color": "#f92aad",

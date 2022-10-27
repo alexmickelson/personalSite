@@ -17,7 +17,7 @@ function App() {
               <Navbar />
             </div>
 
-            <div className="w-full flex-auto p-12 container mx-auto">
+            <div className="shrink p-12 mx-auto w-full">
                 <Routes>
                   <Route path="/">
                     <Route index element={<Home />} />
