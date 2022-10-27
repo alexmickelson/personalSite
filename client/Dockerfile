@@ -7,6 +7,7 @@ COPY . /app
 RUN npm run build
 
 FROM ghcr.io/linuxserver/swag
+RUN rm -f /config/nginx/site-confs/*
 COPY --from=build /app/build /usr/share/nginx/html
 
 # CMD ["nginx", "-g", "daemon off;"]
