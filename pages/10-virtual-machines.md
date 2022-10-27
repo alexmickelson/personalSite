@@ -50,7 +50,7 @@ options vio-pci ids=10de:2482,10de:228b
 # softdep nvidia pre:vfio-pci
 ```
 
-sudo vim /etc/mkinitcpio.conf 
+sudo vim /etc/mkinitcpio.conf (dots indicate other, not actual dots)
 ```
     MODULES=(... vfio_pci vfio vfio_iommu_type1 vfio_virqfd ...)
 

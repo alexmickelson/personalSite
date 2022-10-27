@@ -1,5 +1,46 @@
 @tailwind base;
+
+h1 {
+  @apply text-5xl;
+  @apply my-5;
+}
+h2 {
+  @apply text-4xl;
+  @apply my-5;
+}
+h3 {
+  @apply text-3xl;
+  @apply my-5;
+}
+h4 {
+  @apply text-2xl;
+  @apply my-5;
+}
+h5 {
+  @apply text-3xl;
+  @apply my-5;
+}
+/* a {
+  @apply text-blue-600 underline;
+} */
+
+code {
+  @apply font-mono;
+  background-color: #221537;
+  @apply rounded-md;
+}
+
+code.inline {
+  @apply p-1.5;
+}
+
 @tailwind components;
+
+* {
+  @apply text-base;
+  /* @apply font-sans; */
+  /* @apply font-mono; */
+}
 
 .light {
   --color-primary: #1e293b;
@@ -9,7 +50,8 @@
 }
 
 .dark {
-  --color-primary: #d633aa;
+  /* --color-primary: #d633aa; */
+  --color-primary: #dc6fbf;
   --color-secondary: #5abaf4;
   --color-dark: #263c5c;
   --color-bg: #251543;

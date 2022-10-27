@@ -8,9 +8,11 @@ sudo apt install qemu-kvm libvirt-daemon-system virtinst bridge-utils openvswitc
 
 add users to virsh group
 set environtment variable to always interact with system
-```code
+```
 LIBVIRT_DEFAULT_URI=qemu:///system 
 ```
+
+this is testing the `inline` capabilities
 
 ## Set up a bridge network interface (allow vms to get non-nat'd IP's)
 
@@ -192,19 +194,19 @@ sudo update-initramfs -u -k all
       ```
     - ```
       virt-install \
-      --name=<<new machine name>> \
-      --ram <<RAM in MB>> \
-      --vcpus=<<Number>> \
-      --cpu=Haswell-noTSX \
-      --cdrom=/data/iso/<<image.iso>> \
-      --osinfo=<<To get the list of supported OSInfo types, execute: osinfo-query os>> \
-      --disk path=/data/vms/images/<<new machine name>>/<<new machine name>>.qcow2,size=<<storage size in GB>>,format=qcow2 \
-      --network network=host-bridge,model=virtio,virtualport_type=openvswitch \
-      --graphics vnc \
-      --boot uefi \
-      --noautoconsole \
-      --noreboot \
-      #--xml './devices/interface/vlan/tag/@id=<<vlan number>>'
+        --name=<<new machine name>> \
+        --ram <<RAM in MB>> \
+        --vcpus=<<Number>> \
+        --cpu=Haswell-noTSX \
+        --cdrom=/data/iso/<<image.iso>> \
+        --osinfo=<<To get the list of supported OSInfo types, execute: osinfo-query os>> \
+        --disk path=/data/vms/images/<<new machine name>>/<<new machine name>>.qcow2,size=<<storage size in GB>>,format=qcow2 \
+        --network network=host-bridge,model=virtio,virtualport_type=openvswitch \
+        --graphics vnc \
+        --boot uefi \
+        --noautoconsole \
+        --noreboot \
+        #--xml './devices/interface/vlan/tag/@id=<<vlan number>>'
       ```
 2. Connect to new VM in VirtMan and do:
     - Complete the installation, reboot.
