@@ -9,7 +9,7 @@ import { ThemeToggle } from "./components/theme/ThemeToggle";
 function App() {
   return (
     <BrowserRouter>
-      <div className="text-primary transition-all  ">
+      <div className="text-primary transition-all  bg-bg-700 ">
         <ThemeProvider initialTheme={Theme.dark}>
           <ThemeToggle />
           <div className="w-full h-full flex">
