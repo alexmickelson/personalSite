@@ -1,7 +1,12 @@
 # personalSite
 
-check out: https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/
+check out: 
+https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/
 https://www.jumboframeinternet.com/post/9/
+https://tailscale.com/blog/how-tailscale-works/
+https://tailscale.com/blog/how-nat-traversal-works/
+https://www.google.com/intl/en/ipv6/statistics.html
+
 
 TODO:
 
