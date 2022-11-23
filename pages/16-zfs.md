@@ -39,7 +39,17 @@ systemctl enable zfs.target zfs-import.service zfs-mount.service
 zpool iostat my-pool 1 
 ```
 
+## Other Commands
+
+Get all properties of zfs pool
+
+```
+zfs get all my-pool
+```
+
 ## Glorious Sanoid / Syncoid Snapshot Management
+
+### Sanoid
 
 Sanoid is a fantastic project that makes snapshot management extremely simple. You can check out the git repo [here](https://github.com/jimsalterjrs/sanoid). On ubuntu you can install them with:
 ```
@@ -71,3 +81,42 @@ Check out the git repo for more details about the sanoid config
 Installing with ubuntu will auto-install a sanoid.timer service that will periodically wake up and run the sanoid command.
 
 Syncoid is sanoids sibling. It moves the snapshots that sanoid creates.
+
+### Syncoid
+
+Syncoid does not have a daemon that runs it, you are expected to set up a your own way of scheduling it (probably to ensure that you are monitoring it as well).
+
+Here is a github action that runs syncoid on a schedule. As usual, check out [https://crontab.guru](https://crontab.guru) to help out with the cron syntax.
+
+```yml
+name: ZFS Backup
+on:
+  schedule:
+    - cron: 0 1 * * *
+  workflow_dispatch:
+jobs:
+  update-infrastructure:
+    runs-on: [self-hosted, home-server]
+    steps:
+      - name: run syncoid
+        run: |
+          syncoid \
+            --recursive \
+            --no-privilege-elevation \
+            --no-rollback \
+              data \
+              backup/data
+
+          syncoid \
+            --recursive \
+            --no-privilege-elevation \
+            --no-rollback \
+              media \
+              backup/media
+```
+
+In order for a regular user to run these commands they need these permissions ([source](https://github.com/jimsalterjrs/sanoid/issues/522))
+
+```
+zfs allow -u <backup-user> compression,create,destroy,mount,mountpoint,receive,rollback,send,snapshot,hold <pool name>
+```
