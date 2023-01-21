@@ -397,3 +397,11 @@ dmidecode -t 1 -u | grep $'^\t\t[^"]' | xargs -n1 | perl -lne 'printf "%c", hex(
   </devices>
 </domain>
 ```
+
+# Port forwarding
+
+If your vm is running in user mode you can run port forwarding with: ([source](https://serverfault.com/questions/170079/forwarding-ports-to-guests-in-libvirt-kvm))
+
+```
+virsh qemu-monitor-command --hmp sles11 'hostfwd_add ::2222-:22'
+```
