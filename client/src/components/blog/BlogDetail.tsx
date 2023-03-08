@@ -43,9 +43,9 @@ export const BlogDetail: FC<{ blogname: string }> = ({ blogname }) => {
 
 const PrismMarkdownComponents = {
   code({ node, inline, children, className, ...props }: any) {
-    const language = className?.replace("language-", "");
+    const language = className?.replace("language-", "") ?? "";
     const match = /language-(\w+)/.exec(className || "");
-    const hasMeta = node?.data?.meta;
+    // const hasMeta = node?.data?.meta;
 
     // if (!match)
     //   console.log({ node, inline, children, className, language, props });
@@ -77,21 +77,21 @@ const PrismMarkdownComponents = {
   },
 };
 
-const PrismHighlighter: FC<{
-  props: any;
-  children: React.ReactNode & React.ReactNode[];
-  language?: string;
-}> = ({ language, props, children }) => (
-  <SyntaxHighlighter
-    style={theme}
-    useInlineStyles={true}
-    language={language}
-    // showLineNumbers
-    {...props}
-  >
-    {children}
-  </SyntaxHighlighter>
-);
+// const PrismHighlighter: FC<{
+//   props: any;
+//   children: React.ReactNode & React.ReactNode[];
+//   language?: string;
+// }> = ({ language, props, children }) => (
+//   <SyntaxHighlighter
+//     style={theme}
+//     useInlineStyles={true}
+//     language={language}
+//     // showLineNumbers
+//     {...props}
+//   >
+//     {children}
+//   </SyntaxHighlighter>
+// );
 
 // const MarkdownComponents = {
 //   code({ node, inline, className, ...props }: any) {

@@ -4,6 +4,7 @@ const colors = require("tailwindcss/colors");
 const myColors = {
   primary: "var(--color-primary)",
   secondary: "var(--color-secondary)",
+  otherSecondary: "var(--color-othersecondary)",
   dark: "var(--color-dark)",
   // bg: {
   //   DEFAULT: '#4A2E7B',

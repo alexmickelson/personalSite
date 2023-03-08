@@ -1,38 +1,54 @@
 @tailwind base;
 
 h1 {
-  @apply text-5xl;
-  @apply my-5;
+  @apply text-5xl
+    text-otherSecondary
+    my-5
+    font-bold;
 }
 h2 {
-  @apply text-4xl;
-  @apply my-5;
+  @apply text-4xl
+    text-otherSecondary
+    font-bold
+    my-5;
 }
 h3 {
-  @apply text-3xl;
-  @apply my-5;
+  @apply text-3xl
+    text-otherSecondary
+    font-bold
+    my-5;
 }
 h4 {
-  @apply text-2xl;
-  @apply my-5;
+  @apply text-2xl
+    text-otherSecondary
+    font-bold
+    my-5;
 }
 h5 {
-  @apply text-3xl;
-  @apply my-5;
+  @apply text-3xl
+    text-otherSecondary
+    font-bold
+    my-5;
 }
 /* a {
   @apply text-blue-600 underline;
 } */
 
 code {
-  @apply font-mono;
+  @apply font-mono
+    rounded-md;
   background-color: #221537;
-  @apply rounded-md;
-  white-space : pre-wrap !important;
+  white-space: pre-wrap !important;
 }
 
 code.inline {
-  @apply p-1.5;
+  @apply p-1.5 font-mono;
+  background-color: #281943;
+  color: #f92aad;
+}
+
+p {
+  @apply mx-3;
 }
 
 @tailwind components;
@@ -54,6 +70,7 @@ code.inline {
   /* --color-primary: #d633aa; */
   --color-primary: #dc6fbf;
   --color-secondary: #5abaf4;
+  --color-othersecondary: #6eaed7;
   --color-dark: #263c5c;
   --color-bg: #251543;
 }
