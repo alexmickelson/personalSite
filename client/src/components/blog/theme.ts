@@ -1,5 +1,5 @@
 //initialiy inspired by synthwave84
-//liked the idrea, but wanted to tone it down a bit
+//liked the idea, but wanted to tone it down a bit
 
 export const theme: { [key: string]: React.CSSProperties } = {
   "code[class*=\"language-\"]": {
@@ -138,7 +138,7 @@ export const theme: { [key: string]: React.CSSProperties } = {
   },
   "atrule": {
     "color": "#f4eee4",
-    "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
+    // "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
   },
   "keyword": {
     "color": "#f4eee4",
