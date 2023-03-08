@@ -17,7 +17,7 @@ function App() {
               <Navbar />
             </div>
 
-            <div className="shrink p-12 mx-auto w-full">
+            <div className="shrink p-12 mx-auto w-full py-0">
                 <Routes>
                   <Route path="/">
                     <Route index element={<Home />} />
