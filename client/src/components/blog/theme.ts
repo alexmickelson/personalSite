@@ -4,7 +4,7 @@
 export const theme: { [key: string]: React.CSSProperties } = {
   "code[class*=\"language-\"]": {
     "color": "#f92aad",
-    "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3",
+    // "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3",
     "background": "none",
     "fontFamily": "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
     // "fontSize": "1em",
@@ -24,7 +24,7 @@ export const theme: { [key: string]: React.CSSProperties } = {
   },
   "pre[class*=\"language-\"]": {
     "color": "#f92aad",
-    "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3",
+    // "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3",
     "background": "none",
     "fontFamily": "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
     "fontSize": "1em",
@@ -98,42 +98,42 @@ export const theme: { [key: string]: React.CSSProperties } = {
   },
   "property": {
     "color": "#72f1b8",
-    "textShadow": "0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475"
+    // "textShadow": "0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475"
   },
   "selector": {
     "color": "#72f1b8",
-    "textShadow": "0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475"
+    // "textShadow": "0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475"
   },
   "function-name": {
     "color": "#6196cc"
   },
   "boolean": {
     "color": "#fdfdfd",
-    "textShadow": "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975"
+    // "textShadow": "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975"
   },
   "selector.id": {
     "color": "#fdfdfd",
-    "textShadow": "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975"
+    // "textShadow": "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975"
   },
   "function": {
     "color": "#fdfdfd",
-    "textShadow": "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975"
+    // "textShadow": "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975"
   },
   "class-name": {
     "color": "#fff5f6",
-    "textShadow": "0 0 2px #000, 0 0 10px #fc1f2c75, 0 0 5px #fc1f2c75, 0 0 25px #fc1f2c75"
+    // "textShadow": "0 0 2px #000, 0 0 10px #fc1f2c75, 0 0 5px #fc1f2c75, 0 0 25px #fc1f2c75"
   },
   "constant": {
     "color": "#f92aad",
-    "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3"
+    // "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3"
   },
   "symbol": {
     "color": "#f92aad",
-    "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3"
+    // "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3"
   },
   "important": {
     "color": "#f4eee4",
-    "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575",
+    // "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575",
     "fontWeight": "bold"
   },
   "atrule": {
@@ -142,15 +142,15 @@ export const theme: { [key: string]: React.CSSProperties } = {
   },
   "keyword": {
     "color": "#f4eee4",
-    "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
+    // "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
   },
   "selector.class": {
     "color": "#f4eee4",
-    "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
+    // "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
   },
   "builtin": {
     "color": "#f4eee4",
-    "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
+    // "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
   },
   "string": {
     "color": "#f87c32"
