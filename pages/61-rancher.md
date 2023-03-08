@@ -47,3 +47,13 @@ The Rancher cluster management system needs to be installed on an existing clust
 # Using rancher to provision a cluster
 
 The default guide covers this pretty well, the only trick is to make sure ont he done provisioning page you can configure your tailscale ip's in the advanced section
+
+# RAM Caching
+
+Kubernetes doesn't like when its nodes run out of ram. Unfortunatly this puts it at ods with linux filesystems, who like to cache their files in ram. These two systems don't play together like they should.
+
+This cronjob should regularly clear up the filesystem ram cache
+
+```
+@daily  echo 1 > /proc/sys/vm/drop_caches
+```
