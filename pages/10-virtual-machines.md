@@ -405,3 +405,7 @@ If your vm is running in user mode you can run port forwarding with: ([source](h
 ```
 virsh qemu-monitor-command --hmp sles11 'hostfwd_add ::2222-:22'
 ```
+
+# todo: check out nixos
+
+https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
