@@ -43,8 +43,15 @@ zpool iostat my-pool 1
 
 Get all properties of zfs pool
 
-```
+```bash
 zfs get all my-pool
+```
+
+import existing pools
+
+```bash
+zpool import # to list pool
+zpool import -a
 ```
 
 ## Glorious Sanoid / Syncoid Snapshot Management

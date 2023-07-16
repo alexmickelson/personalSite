@@ -1,3 +1,16 @@
+# GPU Passhrough resources
+
+https://github.com/bryansteiner/gpu-passthrough-tutorial
+https://www.reddit.com/r/Fedora/comments/x487g1/how_to_force_waylandgnomeshell_to_use_intel_igpu/
+
+# install packages
+
+## debian
+
+```bash
+sudo apt install libvirt-daemon-system libvirt-clients qemu-kvm qemu-utils virt-manager ovmf
+```
+
 # enable IOMMU
 
 ### BIOS
@@ -16,6 +29,22 @@ GRUB_CMDLINE_LINUX_DEFAULT="... amd_iommu=on vfio-pci.ids="
 Rebuild with 
 ```
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+### enable in system-boot
+
+amd: `sudo kernelstub --add-options "amd_iommu=on"`
+
+intel: `sudo kernelstub --add-options "intel_iommu=on"`
+
+`sudo ln -s /dev/null /etc/udev/rules.d/61-gdm.rules`
+`sudo virsh nodedev-detach pci_0000_04_00_0`
+
+Detach nvidia gpu at runtime
+
+```bash
+sudo modprobe -r nvidia-drm
+sudo virsh nodedev-detach pci_0000_04_00_0
 ```
 
 # configure PCI device startup
