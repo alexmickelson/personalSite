@@ -1,5 +1,3 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
 import { useGetBlogPagesQuery } from "../blog/blogHooks";
 import { Spinner } from "../Spinner";
 import { NavBlogItem } from "./NavBlogItem";
