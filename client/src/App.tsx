@@ -5,6 +5,7 @@ import { Home } from "./components/Home";
 import { Navbar } from "./components/navbar/Navbar";
 import { ThemeProvider, Theme } from "./components/theme/ThemeContext";
 import { ThemeToggle } from "./components/theme/ThemeToggle";
+import { MobileNavbar } from "./components/navbar/MobileNavbar";
 
 function App() {
   return (
@@ -13,19 +14,28 @@ function App() {
         <ThemeProvider initialTheme={Theme.dark}>
           <ThemeToggle />
           <div className="w-full h-full flex">
-            <div className="transition-all duration-300 flex-none w-0 md:w-72">
+            <div
+              className="
+                transition-all 
+                duration-300 
+                flex-none 
+                w-0 
+                md:w-72
+            "
+            >
               <Navbar />
             </div>
 
             <div className="shrink p-12 mx-auto w-full py-0">
-                <Routes>
-                  <Route path="/">
-                    <Route index element={<Home />} />
-                    <Route path="blog/:blogname" element={<Blog />} />
-                  </Route>
-                </Routes>
+              <Routes>
+                <Route path="/">
+                  <Route index element={<Home />} />
+                  <Route path="blog/:blogname" element={<Blog />} />
+                </Route>
+              </Routes>
             </div>
           </div>
+          <MobileNavbar />
         </ThemeProvider>
       </div>
     </BrowserRouter>

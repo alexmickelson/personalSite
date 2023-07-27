@@ -6,10 +6,12 @@ export const Navbar = () => {
       aria-label="Sidebar"
       className="
           overflow-y-auto 
-          py-4 
-          px-3 
-          ml-4 
-          my-4 
+          
+          md:py-4 
+          md:px-3 
+          md:ml-4 
+          md:my-4
+
           md:bg-gray-50 
           rounded-lg 
           md:dark:bg-bg-500 
@@ -18,6 +20,7 @@ export const Navbar = () => {
           md:outline-1 
           md:shadow 
           md:hover:shadow-xl 
+
           transition 
           duration-300
         "

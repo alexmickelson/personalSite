@@ -6,5 +6,11 @@ export const Blog = () => {
   const { blogname } = useParams();
 
   if (!blogname) return <div>blog not found</div>;
-  return <BlogDetail blogname={blogname} />;
+  return (
+    <div className="grid">
+      <div className="max-w-6xl justify-self-center">
+        <BlogDetail blogname={blogname} />
+      </div>
+    </div>
+  );
 };
