@@ -79,7 +79,7 @@ options vio-pci ids=10de:2482,10de:228b
 # softdep nvidia pre:vfio-pci
 ```
 
-sudo vim /etc/mkinitcpio.conf (dots indicate other, not actual dots)
+sudo vim /etc/mkinitcpio.conf (dots indicate other, not actual dots) (not needed if no nvidia drivers)
 ```
     MODULES=(... vfio_pci vfio vfio_iommu_type1 vfio_virqfd ...)
 
@@ -174,7 +174,7 @@ configure linux to share memory with kvm
 
 /etc/tmpfiles.d/10-looking-glass.conf
 ```
-f	/dev/shm/looking-glass	0660	user	kvm	-
+f	/dev/shm/looking-glass	0660	libvirt-qemu	kvm	-
 ```
 
 create tmp file without rebooting with ```systemd-tmpfiles --create /etc/tmpfiles.d/10-looking-glass.conf```
