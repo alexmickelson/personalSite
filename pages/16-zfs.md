@@ -13,7 +13,7 @@ sudo apt install zfsutils-linux
 
 Create Pool
 ```
-zpool create new-pool mirror /dev/sdb /dev/sdc
+zpool create <new-pool> mirror /dev/sdb /dev/sdc
 ```
 
 Performance Tweaks
