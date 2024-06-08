@@ -19,8 +19,8 @@ services:
       - ../pages:/usr/share/nginx/html/pages:ro
       
     ports:
-      - 443:443
-      - 80:80 #optional
+      - 0.0.0.0:443:443
+      - 0.0.0.0:80:80 #optional
     restart: unless-stopped
     networks:
       - proxy
