@@ -348,12 +348,12 @@ let
 
     sourceRoot = ".";
 
-    unpackPhase = ''                                                                                                                                                                                                                                                                                  
-      dpkg-deb -x $src .                                                                                                                                                                                                                                                                            
+    unpackPhase = ''
+      dpkg-deb -x $src .
     '';
 
-    installPhase = ''                                                                                                                                                                                                                                                                                 
-      cp -r . $out                                                                                                                                                                                                                                                                                  
+    installPhase = ''
+      cp -r . $out
     '';
 
     meta = with lib; {
@@ -368,10 +368,19 @@ buildFHSUserEnv {
   name = "fs-bash";
   targetPkgs = pkgs: [ libnl openssl zlib ];
 
-  extraInstallCommands = ''                                                                                                                                                                                                                                                                           
-    ln -s ${falcon-sensor}/* $out/                                                                                                                                                                                                                                                                    
+  extraInstallCommands = ''
+    ln -s ${falcon-sensor}/* $out/
   '';
 
   runScript = "bash";
 }
 ```
+
+
+# Home Manager on ubuntu
+
+Configure dconf declaratively
+
+<https://github.com/nix-community/dconf2nix?tab=readme-ov-file>
+
+<https://heywoodlh.io/nixos-gnome-settings-and-keyboard-shortcuts>
