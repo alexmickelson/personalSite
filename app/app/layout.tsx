@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="text-primary transition-all bg-background">{children}</body>
     </html>
   );
 }
