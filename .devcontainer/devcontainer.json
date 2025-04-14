@@ -12,7 +12,9 @@
 				"dbaeumer.vscode-eslint",
 				"dsznajder.es7-react-js-snippets",
 				"esbenp.prettier-vscode",
-				"bradlc.vscode-tailwindcss"
+				"bradlc.vscode-tailwindcss",
+				"ms-python.black-formatter",
+				"ms-python.python"
 			],
 		}
 	},
