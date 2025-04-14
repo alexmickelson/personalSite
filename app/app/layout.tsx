@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import BlogNavbar from "@/features/blog/navbar/BlogNavbar";
 
 export const metadata: Metadata = {
   title: "Alex the Guru",
@@ -13,7 +14,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="text-primary transition-all bg-background">{children}</body>
+      <body
+        className="
+        text-primary transition-all bg-background
+        flex flex-row
+      "
+      >
+        <BlogNavbar />
+        {children}
+      </body>
     </html>
   );
 }

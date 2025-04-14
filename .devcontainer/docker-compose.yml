@@ -1,7 +1,9 @@
 version: "3.8"
 services:
   editor:
-    image: mcr.microsoft.com/vscode/devcontainers/typescript-node:0-16-bullseye
+    build:
+      context: ..
+      dockerfile: ./.devcontainer/Dockerfile
     volumes:
       - ../:/app
       - ./.bashrc:/home/node/.bashrc
