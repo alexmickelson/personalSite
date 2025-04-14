@@ -1,3 +1,4 @@
+from pprint import pprint
 import pandas as pd
 import numpy as np
 import json
@@ -8,6 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# https://www.timescale.com/blog/postgresql-as-a-vector-database-create-store-and-query-openai-embeddings-with-pgvector
 openwebui_token = os.getenv("OPENWEBUI_TOKEN")
 if not openwebui_token:
     raise ValueError("OPENWEBUI_TOKEN is not set in the environment.")
@@ -26,6 +28,7 @@ def read_files_to_dataframe(folder_path: str):
 
 
 def generate_embeddings(content: str):
+    # not doing chunking
 
     endpoint_url = "http://nixos-vm:8080/ollama/api/embed"
     payload = {"model": "nomic-embed-text", "input": [content]}
@@ -35,11 +38,11 @@ def generate_embeddings(content: str):
     }
     response = requests.post(endpoint_url, json=payload, headers=headers)
 
-    if response.status_code == 200:
-        return response.json()
-    else:
-        print(f"Error: {response.status_code}, {response.text}")
-        return []
+    if response.status_code != 200:
+        raise f"Error: {response.status_code}, {response.text}"
+
+    pprint(len(response.json()['embeddings'][0]))
+    return response.json()
 
 
 if __name__ == "__main__":
@@ -54,4 +57,3 @@ if __name__ == "__main__":
     )
 
     print(df.head())
-

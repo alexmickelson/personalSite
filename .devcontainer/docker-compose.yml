@@ -49,7 +49,7 @@ services:
         npm run dev
       "
   db:
-    image: postgres:17
+    image: timescale/timescaledb-ha:pg17 # pgvector and pgvectorscale pre-installed
     environment:
       - POSTGRES_USER=siteuser
       - POSTGRES_PASSWORD=postgresewvraer
