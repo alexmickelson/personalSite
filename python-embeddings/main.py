@@ -40,7 +40,7 @@ def generate_embeddings(content: str) -> List[float]:
     endpoint_url = "http://nixos-vm:8080/ollama/api/embed"
     # model = "nomic-embed-text"
     model = "mxbai-embed-large"
-    payload = {"model": "nomic-embed-text", "input": [content]}
+    payload = {"model": model, "input": [content]}
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {openwebui_token}",
@@ -106,7 +106,7 @@ if __name__ == "__main__":
     # insert_embeddings_to_db(df)
 
     # works better with longer prompts...
-    result = search_similar("linux personal workstation")
+    result = search_similar("web development and css styles")
 
     near_results = [ r for r in result if r[3] < 1.0]
     for r in near_results:

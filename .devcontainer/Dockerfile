@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 RUN apt-get update && apt-get install -y \
     fish git \
     python3 python3-venv \
-    nodejs
+    nodejs npm
 RUN pnpm install -g pnpm
 
     

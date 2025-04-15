@@ -16,5 +16,6 @@ jobs:
           docker build -t personal-site client/
 
           cd deployment
+          docker-compose build
           docker-compose down
           docker-compose up -d
