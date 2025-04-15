@@ -9,7 +9,7 @@ export const NavBlogItem: FC<{ fileName: string }> = ({ fileName }) => {
       p-2
       rounded-lg 
       text-base font-normal text-gray-300
-      transition-all duration-75 hover:bg-gray-100 hover:bg-dark
+      transition-all duration-75 hover:bg-dark
     `;
   return (
     <Link href={`/blog/${fileName}`} className={classes} shallow={true}>

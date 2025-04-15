@@ -24,7 +24,6 @@ const PrismMarkdownComponents: Components = {
     // if (match) console.log(children);
     if (!children) return <></>;
 
-    console.log(props);
     const language = className?.replace("language-", "") ?? "";
 
     const inline = typeof children === "string" && !children.includes("\n");
