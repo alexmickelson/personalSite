@@ -109,6 +109,9 @@ if __name__ == "__main__":
 
     # insert_embeddings_to_db(df)
 
-    result = search_similar("tailwind")
+    # works better with longer prompts...
+    result = search_similar("styling things and web development")
     for r in result[:3]:
        print(r[0])
+       print(r[1])
+       print("##############################################")
