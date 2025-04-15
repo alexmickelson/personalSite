@@ -3,7 +3,8 @@
 ## Install these packages
 
 ```bash
-sudo apt install qemu-kvm libvirt-daemon-system virtinst bridge-utils openvswitch-switch zfsutils-linux libguestfs-tools (optional: nfs-common ovmf)
+sudo apt install qemu-kvm libvirt-daemon-system virtinst bridge-utils openvswitch-switch zfsutils-linux libguestfs-tools 
+# (optional: sudo apt install nfs-common ovmf)
 ```
 
 add users to virsh group  
@@ -12,9 +13,10 @@ set environtment variable to always interact with system
 LIBVIRT_DEFAULT_URI=qemu:///system 
 ```
 
-this is testing the `inline` capabilities
 
-## Set up a bridge network interface (allow vms to get non-nat'd IP's)
+## Set up a bridge network interface 
+
+> this (allow vms to get non-nat'd IP's)
 
 Use two network interfaces, one to act as the host machines IP address on the 5 vlan, and the other to be a bridge to attach a virtual switch for the vm's.
 

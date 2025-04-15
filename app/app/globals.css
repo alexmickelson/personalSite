@@ -64,17 +64,26 @@ h5 {
 code {
   @apply font-mono
     rounded-md;
-  background-color: #221537;
+  /* background-color: #221537; */
   white-space: pre-wrap !important;
 }
 
 code.inline {
   @apply p-1.5 font-mono;
-  background-color: #281943;
-  /* color: #f92aad; */
+  background-color: #332a44;
+  color: #ff7fd0;
 }
 
 p {
   @apply mx-3;
   @apply my-4;
+}
+
+
+blockquote {
+  @apply border-l-4
+    pl-4
+    my-6
+    italic
+    text-gray-300;
 }

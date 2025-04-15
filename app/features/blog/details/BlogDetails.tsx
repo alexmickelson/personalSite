@@ -30,7 +30,7 @@ const PrismMarkdownComponents: Components = {
     const inline = typeof children === "string" && !children.includes("\n");
     if (inline)
       return (
-        <code className={`${className} inline `} {...props}>
+        <code className={` inline `} {...props}>
           {children}
         </code>
       );
