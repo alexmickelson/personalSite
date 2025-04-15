@@ -35,7 +35,9 @@ services:
         npm start
       "
   app:
-    image: node:20-alpine
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     volumes:
       - ../:/app
     working_dir: /app
@@ -45,8 +47,8 @@ services:
     command: |
       -c "
         cd app
-        npm install
-        npm run dev
+        pnpm install
+        pnpm run dev
       "
   db:
     image: timescale/timescaledb-ha:pg17 # pgvector and pgvectorscale pre-installed

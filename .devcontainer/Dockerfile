@@ -4,6 +4,8 @@ RUN apt-get update && apt-get install -y \
     fish git \
     python3 python3-venv \
     nodejs
+RUN pnpm install -g pnpm
+
     
 WORKDIR /app
     

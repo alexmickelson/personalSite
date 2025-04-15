@@ -1,10 +1,33 @@
 version:  "3.8"
 services:  
-  personal-site:
-    image: personal-site
-    container_name: personal-site
-    cap_add:
-      - NET_ADMIN
+  # personal-site:
+  #   image: personal-site
+  #   container_name: personal-site
+  #   cap_add:
+  #     - NET_ADMIN
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=America/Denver
+  #     - URL=alexmickelson.guru
+  #     - SUBDOMAINS=wildcard
+  #     - VALIDATION=dns
+  #     - DNSPLUGIN=cloudflare
+  #   volumes:
+  #     - ./default.conf:/config/nginx/site-confs/default.conf
+  #     - /data/swag:/config
+  #     - ../pages:/usr/share/nginx/html/pages:ro
+      
+  #   ports:
+  #     - 0.0.0.0:443:443
+  #     - 0.0.0.0:80:80 #optional
+  #   restart: unless-stopped
+  #   networks:
+  #     - proxy
+
+  swag:
+    image: ghcr.io/linuxserver/swag
+    container_name: swag
     environment:
       - PUID=1000
       - PGID=1000
@@ -21,6 +44,13 @@ services:
     ports:
       - 0.0.0.0:443:443
       - 0.0.0.0:80:80 #optional
+    restart: unless-stopped
+    networks:
+      - proxy
+  site:
+    build:
+      context: ../app
+      dockerfile: ./Dockerfile
     restart: unless-stopped
     networks:
       - proxy

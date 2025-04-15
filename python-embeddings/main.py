@@ -34,6 +34,7 @@ def read_files_to_dataframe(folder_path: str):
 
 def generate_embeddings(content: str) -> List[float]:
     # not doing chunking
+    #    - chunking ideas https://www.pinecone.io/learn/chunking-strategies/
     # do with browser? https://github.com/huggingface/transformers.js/issues/3
 
     endpoint_url = "http://nixos-vm:8080/ollama/api/embed"
@@ -49,7 +50,6 @@ def generate_embeddings(content: str) -> List[float]:
     if response.status_code != 200:
         raise f"Error: {response.status_code}, {response.text}"
 
-    # pprint(len(response.json()['embeddings'][0]))
     return response.json()["embeddings"][0]
 
 
@@ -78,22 +78,19 @@ def insert_embeddings_to_db(df: pd.DataFrame):
             cur.close()
             conn.close()
 
+
 def search_similar(search_term: str):
     with psycopg.connect(connection_string) as conn:
         with conn.cursor() as cur:
-            # conn.execute('CREATE EXTENSION IF NOT EXISTS vector')
             register_vector(conn)
             search_query = """
-                SELECT file_name, file_contents, embedding
+                SELECT file_name, file_contents, embedding, (embedding <-> %(list)s::vector) AS distance
                 FROM embeddings
-                ORDER BY embedding <-> %s::vector
+                ORDER BY embedding <-> %(list)s::vector
                 --LIMIT 5
             """
             first_list = generate_embeddings(search_term)
-            # pprint(first_list)
-            # print(len(first_list))
-            # query_embedding = np.array(first_list)
-            cur.execute(search_query, (first_list,))
+            cur.execute(search_query, {"list": first_list})
 
             top_values = cur.fetchall()
             return top_values
@@ -106,13 +103,13 @@ if __name__ == "__main__":
         lambda content: generate_embeddings(content)
     )
 
-    # print(df.head())
-
     # insert_embeddings_to_db(df)
 
     # works better with longer prompts...
-    result = search_similar("styling things and web development")
-    for r in result[:3]:
-       print(r[0])
-       print(r[1])
-       print("##############################################")
+    result = search_similar("linux personal workstation")
+
+    near_results = [ r for r in result if r[3] < 1.0]
+    for r in near_results:
+        print(r[0])
+        print(r[3])
+        print("##############################################")
