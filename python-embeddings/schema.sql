@@ -1,3 +1,4 @@
+-- psql -U siteuser my_db
 Create extension vector;
 CREATE EXTENSION IF NOT EXISTS vectorscale CASCADE;
 

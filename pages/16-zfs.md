@@ -127,3 +127,8 @@ In order for a regular user to run these commands they need these permissions ([
 ```
 zfs allow -u <backup-user> compression,create,destroy,mount,mountpoint,receive,rollback,send,snapshot,hold <pool name>
 ```
+
+
+## ZFS on NIXOS guide by the ZFS folk
+
+<https://openzfs.github.io/openzfs-docs/Getting%20Started/NixOS/index.html>`

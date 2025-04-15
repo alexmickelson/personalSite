@@ -15,11 +15,8 @@
 				"bradlc.vscode-tailwindcss",
 				"ms-python.black-formatter",
 				"ms-python.python"
-			],
+			]
 		}
 	},
-	"remoteUser": "node",
-	"features": {
-		"docker-from-docker": "latest"
-	}
+	"remoteUser": "developer"
 }
