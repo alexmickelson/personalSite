@@ -1,10 +1,23 @@
 //initialiy inspired by synthwave84
 //liked the idea, but wanted to tone it down a bit
 
-export const theme: { [key: string]: React.CSSProperties } = {
+const color1 = "#ed88c8";
+const color2 = "#8e8e8e";
+const color3 = "#9fd8bf";
+const color4 = "#e2777a";
+const color5 = "#6196cc";
+const color6 = "#e59d73";
+const color7 = "#67cdcc";
+const color8 = "green"
+const colorBackground = "#17141d";
+const whiteColor = "#fdfdfd";
+const whiteColor2 = "#fff5f6";
+const whiteColor3 = "#f4eee4";
+
+export const theme: { [key: string]: React.CSSProperties } | undefined = {
   'code[class*="language-"]': {
     display: "inline",
-    color: "#f92aad",
+    color: color1,
     // "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3",
     background: "none",
     fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
@@ -30,7 +43,7 @@ export const theme: { [key: string]: React.CSSProperties } = {
     background: "black"
   },
   'pre[class*="language-"]': {
-    color: "#f92aad",
+    color: color1,
     // "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3",
     background: "none",
     fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
@@ -51,13 +64,13 @@ export const theme: { [key: string]: React.CSSProperties } = {
     padding: "1em",
     margin: ".5em 0",
     overflow: "auto",
-    backgroundColor: "#281943",
+    backgroundColor: colorBackground,
     borderRadius: "1em",
     // "backgroundColor": "transparent !important",
     // "backgroundImage": "linear-gradient(to bottom, #2a2139 75%, #34294f)"
   },
   ':not(pre) > code[class*="language-"]': {
-    backgroundColor: "#281943",
+    backgroundColor: colorBackground,
     borderRadius: "1em",
     // "backgroundColor": "transparent !important",
     // "backgroundImage": "linear-gradient(to bottom, #2a2139 75%, #34294f)",
@@ -65,124 +78,124 @@ export const theme: { [key: string]: React.CSSProperties } = {
     whiteSpace: "normal",
   },
   comment: {
-    color: "#8e8e8e",
+    color: color2,
   },
   "block-comment": {
-    color: "#8e8e8e",
+    color: color2,
   },
   prolog: {
-    color: "#8e8e8e",
+    color: color2,
   },
   doctype: {
-    color: "#8e8e8e",
+    color: color2,
   },
   cdata: {
-    color: "#8e8e8e",
+    color: color2,
   },
   punctuation: {
     color: "#ccc",
   },
   tag: {
-    color: "#e2777a",
+    color: color4,
   },
   "attr-name": {
-    color: "#e2777a",
+    color: color4,
   },
   namespace: {
-    color: "#e2777a",
+    color: color4,
   },
   number: {
-    color: "#e2777a",
+    color: color4,
   },
   unit: {
-    color: "#e2777a",
+    color: color4,
   },
   hexcode: {
-    color: "#e2777a",
+    color: color4,
   },
   deleted: {
-    color: "#e2777a",
+    color: color4,
   },
   property: {
-    color: "#72f1b8",
+    color: color3,
     // "textShadow": "0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475"
   },
   selector: {
-    color: "#72f1b8",
+    color: color3,
     // "textShadow": "0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475"
   },
   "function-name": {
-    color: "#6196cc",
+    color: color5,
   },
   boolean: {
-    color: "#fdfdfd",
+    color: whiteColor,
     // "textShadow": "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975"
   },
   "selector.id": {
-    color: "#fdfdfd",
+    color: whiteColor,
     // "textShadow": "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975"
   },
   function: {
-    color: "#fdfdfd",
+    color: whiteColor,
     // "textShadow": "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975"
   },
   "class-name": {
-    color: "#fff5f6",
+    color: whiteColor2,
     // "textShadow": "0 0 2px #000, 0 0 10px #fc1f2c75, 0 0 5px #fc1f2c75, 0 0 25px #fc1f2c75"
   },
   constant: {
-    color: "#f92aad",
+    color: color1,
     // "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3"
   },
   symbol: {
-    color: "#f92aad",
+    color: color1,
     // "textShadow": "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3"
   },
   important: {
-    color: "#f4eee4",
+    color: whiteColor3,
     // "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575",
     fontWeight: "bold",
   },
   atrule: {
-    color: "#f4eee4",
+    color: whiteColor3,
     // "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
   },
   keyword: {
-    color: "#f4eee4",
+    color: whiteColor3,
     // "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
   },
   "selector.class": {
-    color: "#f4eee4",
+    color: whiteColor3,
     // "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
   },
   builtin: {
-    color: "#f4eee4",
+    color: whiteColor3,
     // "textShadow": "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575"
   },
   string: {
-    color: "#f87c32",
+    color: color6,
   },
   char: {
-    color: "#f87c32",
+    color: color6,
   },
   "attr-value": {
-    color: "#f87c32",
+    color: color6,
   },
   regex: {
-    color: "#f87c32",
+    color: color6,
   },
   variable: {
-    color: "#f87c32",
+    color: color6,
   },
   operator: {
-    color: "#67cdcc",
+    color: color7,
   },
   entity: {
-    color: "#67cdcc",
+    color: color7,
     cursor: "help",
   },
   url: {
-    color: "#67cdcc",
+    color: color7,
   },
   bold: {
     fontWeight: "bold",
@@ -191,6 +204,6 @@ export const theme: { [key: string]: React.CSSProperties } = {
     fontStyle: "italic",
   },
   inserted: {
-    color: "green",
+    color: color8,
   },
 };

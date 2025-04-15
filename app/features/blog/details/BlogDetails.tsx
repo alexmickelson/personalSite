@@ -2,69 +2,66 @@ import gfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { theme } from "./theme";
 import { getBlogContents } from "../blogFileService";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { Components } from "react-markdown";
 
 export default async function BlogDetails({ fileName }: { fileName: string }) {
   const blog = await getBlogContents(fileName);
   return (
-        <ReactMarkdown
-          remarkPlugins={[gfm]}
-          components={PrismMarkdownComponents}
-        >
-          {blog}
-        </ReactMarkdown>
+    <ReactMarkdown remarkPlugins={[gfm]} components={PrismMarkdownComponents}>
+      {blog}
+    </ReactMarkdown>
   );
 }
 
-// export const BlogDetail: FC<{ blogname: string }> = ({ blogname }) => {
-//   const blogQuery = useGetBlogQuery(blogname);
-//   if (blogQuery.isLoading) return <Spinner />;
-//   if (!blogQuery.data) return <>no blog data found</>;
-
-//   return (
-//     <ReactMarkdown
-//       remarkPlugins={[gfm]}
-//       components={
-//         PrismMarkdownComponents
-//       }
-//     >
-//       {blogQuery.data}
-//     </ReactMarkdown>
-//   );
-// };
-
-const PrismMarkdownComponents = {
+const PrismMarkdownComponents: Components = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  code: ({ inline, children, className, ...props }: any) => {
-    const language = className?.replace("language-", "") ?? "";
+  code: (props) => {
+    const { children, className } = props;
+
+    // const inline = props.className ? props.className.includes("inline") : false;
     // const match = /language-(\w+)/.exec(className || "");
 
     // if (match) console.log(children);
+    if (!children) return <></>;
 
-    const trimmedChildren = children.map
-      ? children.map((c: string) => c.trim())
-      : children.trim();
+    console.log(props);
+    const language = className?.replace("language-", "") ?? "";
 
-    if (!inline)
+    const inline = typeof children === "string" && !children.includes("\n");
+    if (inline)
       return (
-        <SyntaxHighlighter
-          style={theme}
-          language={language}
-          // PreTag="code"
-          
-          showLineNumbers={true}
-          wrapLines={true}
-          useInlineStyles={true}
-          {...props}
-        >
-          {trimmedChildren}
-        </SyntaxHighlighter>
-      );
-    else
-      return (
-        <code className={className + " inline "} {...props}>
+        <code className={`${className} inline `} {...props}>
           {children}
         </code>
       );
+
+    // const trimmedChildren = Array.isArray(children)
+    //   ? children.map((c: string) => c.trim())
+    //   : children.toString().trim();
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { style: _style, children: _children, ...propsNoStyle } = props;
+
+    // if (!inline)
+    return (
+      <SyntaxHighlighter
+        style={theme}
+        language={language}
+        // PreTag="code"
+
+        // showLineNumbers={true}
+        wrapLines={true}
+        useInlineStyles={true}
+        // {...propsNoStyle}
+      >
+        {children.toString()}
+      </SyntaxHighlighter>
+    );
+    // else
+    //   return (
+    //     <code className={className + " inline "} {...props}>
+    //       {children}
+    //     </code>
+    //   );
   },
 };

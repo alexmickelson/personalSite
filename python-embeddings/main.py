@@ -34,6 +34,7 @@ def read_files_to_dataframe(folder_path: str):
 
 def generate_embeddings(content: str) -> List[float]:
     # not doing chunking
+    # do with browser? https://github.com/huggingface/transformers.js/issues/3
 
     endpoint_url = "http://nixos-vm:8080/ollama/api/embed"
     # model = "nomic-embed-text"

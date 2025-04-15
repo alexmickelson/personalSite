@@ -30,22 +30,23 @@ h1 {
   @apply text-5xl
     text-othersecondary
     my-5
-    font-bold;
+    font-bold
+    text-center;
 }
 h2 {
-  @apply text-4xl
-    text-othersecondary
-    font-bold
-    my-5;
-}
-h3 {
   @apply text-3xl
     text-othersecondary
     font-bold
     my-5;
 }
-h4 {
+h3 {
   @apply text-2xl
+    text-othersecondary
+    font-bold
+    my-5;
+}
+h4 {
+  @apply text-xl
     text-othersecondary
     font-bold
     my-5;
@@ -70,7 +71,7 @@ code {
 code.inline {
   @apply p-1.5 font-mono;
   background-color: #281943;
-  color: #f92aad;
+  /* color: #f92aad; */
 }
 
 p {

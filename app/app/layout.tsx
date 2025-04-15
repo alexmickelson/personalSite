@@ -17,11 +17,14 @@ export default function RootLayout({
       <body
         className="
         text-primary transition-all bg-background
-        flex flex-row
+        flex flex-row justify-center
       "
       >
         <BlogNavbar />
+        <section className="ms-12 flex-grow max-w-6xl">
+
         {children}
+        </section>
       </body>
     </html>
   );

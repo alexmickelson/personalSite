@@ -14,7 +14,8 @@
 				"esbenp.prettier-vscode",
 				"bradlc.vscode-tailwindcss",
 				"ms-python.black-formatter",
-				"ms-python.python"
+				"ms-python.python",
+				"AntiAntiSepticeye.vscode-color-picker"
 			]
 		}
 	},

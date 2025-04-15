@@ -6,9 +6,9 @@
 sudo apt install qemu-kvm libvirt-daemon-system virtinst bridge-utils openvswitch-switch zfsutils-linux libguestfs-tools (optional: nfs-common ovmf)
 ```
 
-add users to virsh group
+add users to virsh group  
 set environtment variable to always interact with system
-```
+```bash
 LIBVIRT_DEFAULT_URI=qemu:///system 
 ```
 
@@ -149,7 +149,7 @@ sudo modprobe zfs
 Like LVM, uses a pool/volume system to coordinate storage.
 Make sure that /data/vms/images exists before running the following commands.
 
-```
+```bash
 virsh pool-define-as local dir --target /data/vms/images
 virsh pool-build local
 virsh pool-start local
@@ -163,7 +163,7 @@ Like the br0 bridge, the local pool and directory path need to be identical on a
 
 A ZFS scrub job will check the disks for data degredation. They are worth running on an automated schedule.
 
-```
+```bash
 zpool scrub vms
 ```
 
@@ -189,10 +189,10 @@ sudo update-initramfs -u -k all
 
 ## Instructions for a manual install of new installation from ISO
 1. On the hypervisor box it will be installed on, do:
-    - ```
+    - ```bash
       zfs create vms/images/<new machine name>
       ```
-    - ```
+    - ```bash
       virt-install \
         --name=<<new machine name>> \
         --ram <<RAM in MB>> \
@@ -231,10 +231,10 @@ sudo update-initramfs -u -k all
 
 ## Instructions for Golden Image installation:
 1. On the hypervisor box it will be installed on, do:
-    - ```
+    - ```bash
       zfs create vms/images/<new machine name>
       ```
-    - ```
+    - ```bash
       virt-install \
       --name=<<new machine name>> \
       --ram <<RAM in MB>> \
@@ -251,20 +251,20 @@ sudo update-initramfs -u -k all
       ```
 2. Golden Image Post install OS Configuration
     - Reset the host ssh fingerprint
-      ```
+      ```bash
       sudo rm -v /etc/ssh/ssh_host_*
       sudo dpkg-reconfigure openssh-server
       ```
     - Change hostname and update hosts file
-      ```
+      ```bash
       sudo hostnamectl set-hostname name
       sudo vim /etc/hosts
       ```
     - Update networking
-      ```
+      ```bash
       sudo vim /etc/netplan/00-installer-config.yaml
       ``` 
     - Remove cloud-init
-      ```
+      ```bash
       sudo apt purge cloud-init
       ```
