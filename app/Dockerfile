@@ -22,8 +22,5 @@ COPY --from=builder /app/package.json ./
 RUN npm install --production
 
 COPY --from=builder /app/.next ./.next
-# COPY --from=builder /app/public ./public
-
-RUN mkdir -p storage && rm -rf /app/storage/*
 
 CMD [ "npm", "run", "start" ]
