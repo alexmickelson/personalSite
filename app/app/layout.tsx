@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import BlogNavbar from "@/features/blog/navbar/BlogNavbar";
+export const dynamic = 'force-dynamic'
+
 
 export const metadata: Metadata = {
   title: "Alex the Guru",

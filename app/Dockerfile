@@ -9,9 +9,6 @@ COPY package.json ./
 RUN npm install
 COPY . .
 
-RUN mkdir -p storage
-RUN rm -rf /app/storage/*
-ENV NEXT_PUBLIC_ENABLE_FILE_SYNC=true
 RUN npm run build
 
 FROM node:22-alpine AS production
@@ -22,10 +19,10 @@ RUN npm install -g npm
 
 COPY --from=builder /app/package-lock.json ./
 COPY --from=builder /app/package.json ./
-RUN npm install --prod
+RUN npm install --production
 
 COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
+# COPY --from=builder /app/public ./public
 
 RUN mkdir -p storage && rm -rf /app/storage/*
 
