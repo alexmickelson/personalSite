@@ -46,13 +46,17 @@ services:
     restart: unless-stopped
     networks:
       - proxy
+
   site:
     build:
       context: ../app
       dockerfile: ./Dockerfile
+    volumes:
+      - ../pages:/app/pages:ro
     restart: unless-stopped
     networks:
       - proxy
+
 networks:
   proxy:
     external: true
